@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className="w-full flex justify-between items-center p-4 shadow-md bg-white">
       {/* Left Side - Logo/Title */}
-      <h1 className="text-xl font-bold">My App</h1>
+      <h1 className="text-xl font-bold">AMS</h1>
 
       {/* Right Side - Auth Button */}
       {status === "loading" ? (
