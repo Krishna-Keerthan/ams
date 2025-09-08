@@ -3,14 +3,11 @@
 import { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { log } from "console";
 
 export default function LoginPage() {
-
-  const {data : session} = useSession();
-  const user = session?.user
+  const { data: session } = useSession();
+  const user = session?.user;
   console.log(user);
-  
 
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -30,7 +27,7 @@ export default function LoginPage() {
     if (res?.error) {
       setError("Invalid email or password");
     } else {
-      router.push("/"); // Redirect after login
+      router.push("/user-dashboard"); // Redirect after login
     }
   };
 
@@ -40,7 +37,9 @@ export default function LoginPage() {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-xl shadow-md w-96"
       >
-        <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center text-green-600">
+          Login
+        </h1>
 
         {error && (
           <p className="bg-red-100 text-red-600 p-2 mb-3 rounded">{error}</p>
@@ -52,7 +51,7 @@ export default function LoginPage() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
+            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-green-400"
             required
           />
         </div>
@@ -63,14 +62,14 @@ export default function LoginPage() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
+            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-green-400"
             required
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
         >
           Sign In
         </button>
