@@ -32,9 +32,9 @@ export default function RootLayout({
         <html lang="en">
             <AuthProvider>
                 <SidebarProvider>
-                    <AppSidebar />
+                    <AppSidebar  />
                     
-                        <SidebarTrigger />
+                        <SidebarTrigger className="bg-amber-300 fixed left-72" />
                         {children}
                 </SidebarProvider>
             </AuthProvider>
