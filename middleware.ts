@@ -24,15 +24,15 @@ export default withAuth(
       return NextResponse.redirect(url);
     }
 
-    // 3️⃣ Restrict ADMIN routes
-    if (
-      (pathname.startsWith("/admin")  && role !== "ADMIN" ) ||
-      (pathname.startsWith("/superadmin")  && role !== "SUPER_ADMIN" )
-    ) {
-      const url = req.nextUrl.clone();
-      url.pathname = "/user-dashboard";
-      return NextResponse.redirect(url);
-    }
+   // 3️⃣ Restrict ADMIN routes (✅ allow both ADMIN and SUPER_ADMIN)
+if (pathname.startsWith("/admin")) {
+  if (role !== "ADMIN" && role !== "SUPER_ADMIN") {
+    const url = req.nextUrl.clone();
+    url.pathname = "/user-dashboard";
+    return NextResponse.redirect(url);
+  }
+}
+
 
     // 4️⃣ Restrict USER dashboard
     if (pathname.startsWith("/user-dashboard")) {
