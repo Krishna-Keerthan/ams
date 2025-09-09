@@ -39,7 +39,7 @@ enum Role {
   STUDENT
   WORKER
   ADMIN
-  SUPERADMIN
+  SUPER_ADMIN
 }
 
 enum Gender {

@@ -2,9 +2,14 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, ClipboardList, Users, Shield, Clock, ArrowRight } from "lucide-react"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 export default function LandingPage() {
   return (
+    
+    <>
+    <Header/>
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white py-20 px-6">
@@ -177,5 +182,7 @@ export default function LandingPage() {
         </div>
       </section>
     </main>
+    <Footer/>
+    </>
   )
 }
